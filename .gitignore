@@ -21,8 +21,8 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-Algorithms in Pseudocode
-Declare an array of integer called "num"values ranging from 1 to 100
+#PSEUDOCODE FOR ALGORITHMS
+Declare an integer varibale called "checkNum"
 Accept the integer value into a variable called "checkNum"
 
 if(checkNum is not a number)
@@ -33,20 +33,74 @@ if(checkNum is not a number)
  {
     return error message ("The provided value is either less than 1 or greater than 100. Please enter number within the range of 1 to 100);
  }
- else if(checkNum is multiple of 3)
+ 
+ #Solution For STEP 4:
+ Declare "Do you want to print on screen only when checkNum is a multiple of 3 AND 5 ?"
+ Accept answer;
+ if(answer is equal to "Yes")
  {
-    return "Baro";
- }
- else if(checkNum is multiple of 5)
- {
-    return "Sello";
- }
- else if(checkNum is multiple of 3 AND checkNum is multiple of 5)
- {
+    Set returned text colour to Blue;
     return "BaroSello";
+    print "BaroSello" on console;
  }
  else
- {
-    return checkNum;
- }
- 
+ { 
+        #Solution For STEP 1, 2, 3:
+        else if(checkNum is multiple of 3)
+        {
+            #Solution For STEP 5: Declare "Do you want to print result on another output ?"
+            Accept answer;
+            if(answer is equal to "Yes")
+            {
+                Declare "Select output e.g Twitter, Faceboob and Instagram";
+                 Accept answer;
+                 return "Baro";
+                 print "Baro" on the selected output;
+            }
+            else
+            {            
+                Set returned text colour to Green;
+                return "Baro";
+                print "Baro" on console;
+            }
+        }
+        else if(checkNum is multiple of 5)
+        {
+            #Solution For STEP 5: Declare "Do you want to print result on CONSOLE ONLY or BOTH outputs ?"
+            Accept answer;
+            if(answer is equal to "CONSOLE ONLY")
+            {
+                Set returned text colour to Red;
+                return "Sello";
+                print "Sello" on console;
+            }
+            else if(answer is equal to "BOTH")
+            { 
+                Declare "Select output e.g Twitter, Faceboob and Instagram";
+                 Accept answer;
+                 return "Sello";
+                 print "Sello" on the selected output;
+                 
+                Set returned text colour to Red;
+                return "Sello";
+                print "Sello" on console;
+            }
+        }
+        else if(checkNum is multiple of 3 AND checkNum is multiple of 5)
+        {
+            Set returned text colour to Blue;
+            return "BaroSello";
+            print "BaroSello" on console;
+        }
+        else if(checkNum is multiple of 7)
+        {
+            Set returned text colour to Orange;
+            return "Nardo";
+            print "Nardo" on console;
+        }
+        else
+        {
+            return checkNum;
+            print checkNum on console;
+        }
+    }
