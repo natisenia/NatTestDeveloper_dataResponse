@@ -45,6 +45,10 @@ if(checkNum is not a number)
  {
     return "BaroSello";
  }
+ else if(checkNum is multiple of 7)
+ {
+    return "Nardo";
+ }
  else
  {
     return checkNum;
