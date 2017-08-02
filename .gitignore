@@ -20,3 +20,21 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+Algorithms in Pseudocode
+Declare an array of integer called "num"values ranging from 1 to 100
+Accept the integer value into a variable called "checkNum"
+
+if(checkNum is not a number)
+{
+    return error message ("The provided value is not a number.);
+ }
+ else if(checkNum is less than 1 OR greater than 100)
+ {
+    return error message ("The provided value is either less than 1 or greater than 100. Please enter number within the range of 1 to 100);
+ }
+ else if(checkNum is multiple of 3)
+ {
+    return "Baro";
+ }
+ 
