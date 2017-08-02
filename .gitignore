@@ -37,4 +37,16 @@ if(checkNum is not a number)
  {
     return "Baro";
  }
+ else if(checkNum is multiple of 5)
+ {
+    return "Sello";
+ }
+ else if(checkNum is multiple of 3 AND checkNum is multiple of 5)
+ {
+    return "BaroSello";
+ }
+ else
+ {
+    return checkNum;
+ }
  
