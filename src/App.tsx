@@ -12,6 +12,7 @@ export const App = () => {
   const [data, setData] = useState<Block>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [imageDetails, setImageDetails] = useState<object>();
 
   useEffect(() => {
     getBlocks()
@@ -27,7 +28,18 @@ export const App = () => {
       });
   }, []);
 
-console.log('data', data);
+  const fetchEachImageDetails = (imageData: any) => {
+    const extractedImageData = {
+      id: imageData.id, 
+      description: imageData.data.description, 
+      dimensions: {
+        height: imageData.data.height,
+        width: imageData.data.width
+      }, 
+      createdAt: imageData.data.createdAt 
+    }
+    setImageDetails(extractedImageData);    
+  }
 
   return (
     <div>
@@ -35,8 +47,8 @@ console.log('data', data);
         <img src={logo} className={styles.logo} alt="logo" />
       </header>
       <main>
-        <ImageGrid />
-        <InfoPanel />
+        <ImageGrid data={data} fetchEachImageDetails={fetchEachImageDetails}/>
+        <InfoPanel imageDetails={imageDetails}/>
       </main>
       {loading &&
       <p>Blocks are loading. Please wait...</p>}

@@ -1,3 +1,10 @@
 .imageGrid {
+  display: grid;
+  grid-gap: 30px;
   padding-right: 480px;
+}
+
+.eachImage {
+  cursor: pointer;
+  max-width: 300px;
 }
