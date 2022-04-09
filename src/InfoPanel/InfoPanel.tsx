@@ -1,25 +1,25 @@
 import styles from "./InfoPanel.module.css";
 
-type InfoPanelProps = {
+export type InfoPanelProps = {
   id?: string;
   description?: string;
   dimensions?: string;
   createdAt?: string;
-  imageDetails?: any;
+  imageDetails?: InfoPanelProps;
 };
 
 export const InfoPanel = (props: InfoPanelProps) => {
 
   let moment = require('moment');
 
-  const {id, description, dimensions, createdAt} = props.imageDetails || {};
+  const { id, description, dimensions, createdAt } = props.imageDetails || {};
 
   if (!id) {
     return <aside className={styles.panel}></aside>;
   }
 
   return (
-    <aside className={styles.panel}>
+    <aside className={styles.panel} data-testid='imgInfoPanel'>
       <h2 className={styles.heading}>Block info</h2>
       <dl>
         <dt className={styles.title}>ID:</dt>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import { useState } from 'react';
 import styles from './ImageGrid.module.css';
 
 import { Block } from '../blocks';
@@ -8,11 +8,16 @@ type ImageGridProps = {
   fetchEachImageDetails?: any;
 };
 
+type EachImageProps = {  
+  url?: string;
+  [key:string]: any;
+};
+
 export const ImageGrid = (props: ImageGridProps) => {
 
   const [selectedImage, setSelectedImage] = useState();
 
-  const displayDetailsHandler = (eachImage: any) => {
+  const displayDetailsHandler = (eachImage: Block | EachImageProps ) => {
     props.fetchEachImageDetails(eachImage);
     setSelectedImage(eachImage.options?.url);
   }
@@ -25,16 +30,17 @@ export const ImageGrid = (props: ImageGridProps) => {
   });
 
   return (
-    <div className={styles.imageGrid}>
+    <div className={styles.imageGrid} data-testid='imgGrid'>
       {
         filteredImages?.map((eachImage, index) => {
           return (
             <img
               src={eachImage.options?.url}
               alt={eachImage.type}
-              className={selectedImage === eachImage.options?.url ? `${styles.eachImageStyle} ${styles.activeImage}` : styles.eachImageStyle }
+              className={selectedImage === eachImage.options?.url ? `${styles.eachImageStyle} ${styles.activeImage}` : styles.eachImageStyle}
               onClick={() => displayDetailsHandler(eachImage)}
               key={index}
+              data-testid='selectedImg'
             />
           )
         })

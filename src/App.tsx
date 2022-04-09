@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import logo from './simpplr.svg';
 import styles from './App.module.css';
 import ClipLoader from "react-spinners/ClipLoader";
 
 import { Block, getBlocks } from './blocks';
 
-import { InfoPanel } from './InfoPanel/InfoPanel';
+import { InfoPanel, InfoPanelProps } from './InfoPanel/InfoPanel';
 import { ImageGrid } from './ImageGrid/ImageGrid';
+
 
 export const App = () => {
 
   const [data, setData] = useState<Block>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [imageDetails, setImageDetails] = useState<object>();
+  const [imageDetails, setImageDetails] = useState<InfoPanelProps>();
 
   useEffect(() => {
     getBlocks()
@@ -49,7 +50,7 @@ export const App = () => {
         <InfoPanel imageDetails={imageDetails} />
       </main>
       {error}
-      <ClipLoader color='#00e1ff' loading={loading} css={styles.loaderStyles} size={100} />
+      <ClipLoader color='#00e1ff' loading={loading} css={styles.loaderStyles} size={100} data-testid='loaderImg' />
     </div>
   );
 };
