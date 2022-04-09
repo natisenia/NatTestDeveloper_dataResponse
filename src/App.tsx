@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './simpplr.svg';
 import styles from './App.module.css';
+import ClipLoader from "react-spinners/ClipLoader";
 
 import { Block, getBlocks } from './blocks';
 
@@ -30,15 +31,12 @@ export const App = () => {
 
   const fetchEachImageDetails = (imageData: any) => {
     const extractedImageData = {
-      id: imageData.id, 
-      description: imageData.data.description, 
-      dimensions: {
-        height: imageData.data.height,
-        width: imageData.data.width
-      }, 
-      createdAt: imageData.data.createdAt 
+      id: imageData.id,
+      description: imageData.data.description,
+      dimensions: `${imageData.data.height} X ${imageData.data.width}`,
+      createdAt: imageData.data.createdAt
     }
-    setImageDetails(extractedImageData);    
+    setImageDetails(extractedImageData);
   }
 
   return (
@@ -47,11 +45,11 @@ export const App = () => {
         <img src={logo} className={styles.logo} alt="logo" />
       </header>
       <main>
-        <ImageGrid data={data} fetchEachImageDetails={fetchEachImageDetails}/>
-        <InfoPanel imageDetails={imageDetails}/>
+        <ImageGrid data={data} fetchEachImageDetails={fetchEachImageDetails} />
+        <InfoPanel imageDetails={imageDetails} />
       </main>
-      {loading &&
-      <p>Blocks are loading. Please wait...</p>}
+      {error}
+      <ClipLoader color='#00e1ff' loading={loading} css={styles.loaderStyles} size={100} />
     </div>
   );
 };

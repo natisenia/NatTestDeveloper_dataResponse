@@ -1,10 +1,22 @@
 .imageGrid {
   display: grid;
-  grid-gap: 30px;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
   padding-right: 480px;
 }
 
-.eachImage {
+.eachImageStyle {
   cursor: pointer;
-  max-width: 300px;
+  float: left;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.eachImageStyle:hover {
+  border: 5px solid rgb(170, 179, 251);
+}
+
+.activeImage {
+  border: 5px solid rgb(77, 245, 206);
 }
